@@ -1,0 +1,12 @@
+
+
+
+
+{
+  "compilerOptions": {
+    
+    "target": "ESNext", //Usa a ultima versão
+    "strict": true                            
+                               
+  }
+}
