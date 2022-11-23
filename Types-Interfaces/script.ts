@@ -1,5 +1,5 @@
 
-//Objectis inside TSC
+//Objects inside TSC
 function Fillup(data: {
   nome: string;
   preco: number;
@@ -23,7 +23,8 @@ carregador: true
 
 type NumberOrString = string | number;
  // using it in a function
-type ValueReg = {
+ // Interface is to Objects and Type is to Primitive data
+interface ValueReg {
   
     Nickname: string;
     Age: number;
@@ -52,6 +53,38 @@ Register({
 // even with categories
 
 type Category = "JS" | "React" | "CSS";
+
+
+//API and Fetch
+
+async function fetchP(){
+  const response = await fetch("https://api.origamid.dev/json/notebook.json");
+  const data = await response.json()
+  console.log(data)
+  showP(data)
+}
+
+
+interface Product {
+  nome: string;
+  preco: number;
+  descricao: string;
+  garantia: number | string;
+  seguroAcidentes: boolean;
+}
+
+function showP(data: Product){
+    document.body.innerHTML += `
+    <div style="text-align: center; border: 2px solid gray;">  <h1> Nome:  ${data.nome}   </h1>
+    <p style="font-size:30px "> Preço: ${data.preco} </p>
+    
+    
+    </div>
+    
+    `
+}
+
+fetchP()
 
 
 
