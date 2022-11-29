@@ -71,13 +71,21 @@ interface Product {
   descricao: string;
   garantia: number | string;
   seguroAcidentes: boolean;
+  empresaFabricante:{
+    fundacao:number;
+    nome:string;
+  }
 }
 
 function showP(data: Product){
     document.body.innerHTML += `
     <div style="text-align: center; border: 2px solid gray;">  <h1> Nome:  ${data.nome}   </h1>
     <p style="font-size:30px "> Preço: ${data.preco} </p>
-    
+    <p style="font-size:25px "> Descrição: ${data.descricao} </p>
+    <p style="font-size:30px "> Garantia: ${data.garantia}      </p>
+    <p style="font-size:30px "> Seguro Acidente: ${data.seguroAcidentes}     </p>
+    <p style="font-size:40px "> Empresa fabricante: ${data.empresaFabricante.nome} </p>
+    <p style="font-size:30px "> Garantia: ${data.empresaFabricante.fundacao}               </p>
     
     </div>
     
