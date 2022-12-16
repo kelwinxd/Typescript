@@ -13,3 +13,45 @@ function FilterType(data: Array<number | string>){
 
 console.log(Bigger(numbers))
 console.log(FilterType(values))
+
+
+//Fetching with Array
+async function FetchCourse(){
+   const response = await fetch('https://api.origamid.dev/json/cursos.json');
+   const data = await response.json();
+   ShowCourse(data);
+
+}
+
+FetchCourse();
+
+interface Course {
+   nome: string;
+   aulas: number;
+   idAulas: number[];
+   nivel: 'iniciante' | 'avançado'
+}
+
+function ShowCourse(course: Course[]){
+ 
+
+ 
+   course.forEach(course => {
+      
+      let color;
+     if(course.nivel === 'iniciante'){
+      color = 'blue'
+     }else {
+      color = 'red'
+     }
+      
+      document.body.innerHTML += `
+
+      <div style="text-align: center;">
+      <h1>${course.nome}   </h1>
+      <h3 style="color: ${color}"> ${course.nivel} </h3>
+      </div>
+      
+      `
+  })
+}
